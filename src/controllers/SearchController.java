@@ -46,7 +46,7 @@ public class SearchController {
 
         // MAKE API REQUEST AND BUILD RESPONSE STRING
         try {
-            url = new URI("https://cs.csub.edu/~paul/3390/finder/search.php").toURL();
+            url = new URI("https://cs.csub.edu/~paul/3390/lab08/search.php").toURL();
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
