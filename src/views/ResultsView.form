@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="views.ResultsView">
+  <grid id="27dc6" binding="panelMain" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="e622e" binding="panelNorth" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="f782a" class="javax.swing.JLabel" binding="labelResults">
+            <constraints/>
+            <properties>
+              <labelFor value="31c12"/>
+              <text value="RESULTS"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="49328" binding="panelSouth" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="eca5d" class="javax.swing.JButton" binding="buttonOK">
+            <constraints/>
+            <properties>
+              <text value="OK"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="31c12" binding="scrollResult">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ecdae" class="javax.swing.JEditorPane" binding="editorResult">
+            <constraints/>
+            <properties>
+              <contentType value="text/html"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+    </children>
+  </grid>
+</form>
