@@ -13,21 +13,22 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-public class SearchController {
+public class FindReplaceController {
     private final MainView view;
 
-    public SearchController(MainView view){
+    public FindReplaceController(MainView view){
         this.view = view;
 
-        view.attachSearchListener(new ActionListener() {
+        view.attachFindReplaceListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String searchTerm = view.getSearchTerm();
-                String searchText = view.getSearchText();
+                String findTerm = view.getFindText();
+                String replaceTerm = view.getReplaceText();
+                String searchText = view.getFindReplaceText();
 
-                String html = postSearch(searchTerm, searchText);
+                String html = postSearch(findTerm, replaceTerm, searchText);
 
-                ResultsView resultsView = new ResultsView("Search", html);
+                ResultsView resultsView = new ResultsView("Find/Replace", html);
                 new ResultsController(resultsView);
 
                 resultsView.setVisible(true);
@@ -35,18 +36,19 @@ public class SearchController {
         });
     }
 
-    private String postSearch(String term, String text){
+    private String postSearch(String findTerm, String replaceTerm, String text){
         URL url = null;
         Scanner scanner = null;
         JSONObject postBody = new JSONObject();
         StringBuilder htmlRes = new StringBuilder();
 
-        postBody.put("search", term);
+        postBody.put("find", findTerm);
+        postBody.put("replace", replaceTerm);
         postBody.put("text", text);
 
         // MAKE API REQUEST AND BUILD RESPONSE STRING
         try {
-            url = new URI("https://cs.csub.edu/~crodriguez4/3390/lab08/search.php").toURL();
+            url = new URI("https://cs.csub.edu/~crodriguez4/3390/lab08/replace.php").toURL();
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
